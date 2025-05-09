@@ -1,33 +1,26 @@
 #include <stdio.h>
-//
-//template <typename Type1, typename Type2>
-//
-//Type1 add(Type1 a, Type2 b) {
-//
-//	///関数テンプレート
-//	if (b<a) {
-//		return b;
-//	}
-//	if (a<b){
-//		return a;
-//	}
-//}
-//
-//template <>
-//char add<char>(char a, char b) {
-//	return printf("数字以外は代入できません\n");
-//}
-//
-//int main() {
-//
-//
-//	//計算と結果出力
-//	printf("%d\n", add<int,float>(128, 256.0f));
-//	printf("%d\n", add<char,char>(110,110));
-//	printf("%lf\n", add<double,double>(3.14159265, 2.7182818281));
-//
-//	return 0;
-//}
-//
-//
-///source-charset:utf-8
+
+int Recursive1(int kyuuryou, int zikan, int kotei) {
+    if (kyuuryou >= kotei) {
+        printf("%d時間後に超える\n", zikan);
+        return zikan;
+    }
+    printf("給料: %d　固定給: %d\n", kyuuryou, kotei);
+
+    kyuuryou = kyuuryou * 2 - 50;
+    kotei += 1072;
+    zikan++;
+
+    return Recursive1(kyuuryou, zikan, kotei);
+}
+
+int main() {
+    int saiki = 100;    // 初期給料
+    int ippan = 1072;   // 固定給
+    int zikan = 0;      // 時間
+
+    int result = Recursive1(saiki, zikan, ippan);
+
+    return 0;
+}
+
